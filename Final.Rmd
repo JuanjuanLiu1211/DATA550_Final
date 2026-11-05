@@ -1,0 +1,53 @@
+---
+title: "Final"
+author: "Shihan Liu"
+date: "2026-10-01"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE
+)
+
+tables <- readRDS("output/tables.rds")
+```
+
+## Introduction
+
+Heart disease is an important public health problem, and patient characteristics and clinical measurements may be related to the presence of heart disease. In this project, I use the Cleveland Heart Disease dataset from the UCI Machine Learning Repository. The dataset contains 303 patients and 13 features, including age, sex, chest pain type, resting blood pressure, cholesterol, maximum heart rate, and several other clinical measurements. The original outcome variable ranges from 0 to 4, where 0 indicates no heart disease and values from 1 to 4 indicate the presence of heart disease.
+
+The objectives of this analysis are to clean the dataset, check for missing values, summarize several important patient characteristics, and compare selected clinical measurements between patients with and without heart disease. In later analyses, I may also explore which clinical factors are associated with heart disease using a logistic regression model.
+
+## Data Preparation
+
+The data were obtained from the UCI Machine Learning Repository and are included in the project's data folder.
+
+```{r missing-value}
+knitr::kable(
+  tables$missing,
+  row.names = FALSE,
+  caption = "Number of Missing Values by Variable"
+)
+```
+
+## Descriptive Summary
+
+The table below summarizes selected demographic and clinical characteristics according to heart disease status.
+
+```{r descriptive}
+knitr::kable(
+  tables$summary,
+  caption = "Patient Characteristics by Heart Disease Status"
+)
+```
+
+## Maximum Heart Rate and Heart Disease
+
+The figure compares maximum heart rate between patients with and without heart disease.
+
+```{r Maximum, out.width="100%"}
+knitr::include_graphics("output/maximum_heart_rate.png")
+```
