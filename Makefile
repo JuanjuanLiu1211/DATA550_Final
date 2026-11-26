@@ -13,3 +13,8 @@ output/maximum_heart_rate.png: output/heart_clean.rds R/make_figure.R
 	Rscript R/make_figure.R
 
 .PHONY: all
+
+install:
+	Rscript -e "renv::restore(prompt = FALSE)"
+
+.PHONY: install

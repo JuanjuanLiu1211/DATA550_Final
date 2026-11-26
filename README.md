@@ -4,13 +4,15 @@ This report checks missing values, summarizes patient characteristics by heart d
 
 ## Generate the report
 
-Run the following command in the Terminal from the project directory:
+Run the following commands in the Terminal from the project directory:
 
 ```bash
+make install
 make
 ```
 
-This generates `Final.html`.
+`make install` restores the R package environment recorded in `renv.lock`.
+`make` generates `Final.html`.
 
 ## Table and figure code
 
